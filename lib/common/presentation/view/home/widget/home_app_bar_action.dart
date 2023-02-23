@@ -32,7 +32,7 @@ class HomeAppBarAction extends StatelessWidget {
         ),
         badgeStyle: badges.BadgeStyle(
           shape: badges.BadgeShape.circle,
-          padding: const EdgeInsets.all(7),
+          padding: const EdgeInsets.all(6),
           borderRadius: BorderRadius.circular(5),
           borderSide: const BorderSide(color: Colors.white, width: 2),
           elevation: 0,
