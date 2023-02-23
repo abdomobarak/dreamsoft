@@ -25,7 +25,8 @@ class CarDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-        statusBarColor: Theme.of(context).colorScheme.primary
+        statusBarColor: Theme.of(context).colorScheme.primary,
+       systemNavigationBarColor: Theme.of(context).colorScheme.primary,
     ));
     return Scaffold(
       body: SafeArea(
@@ -105,8 +106,7 @@ class CarDetailsView extends StatelessWidget {
                       height: 20,
                     ),
 
-                    Container(
-                      margin: const EdgeInsets.symmetric(horizontal:MySizes.defaultPadding),
+                    SizedBox(
                       width: double.infinity,
                       height: 200,
                       child: Row(
@@ -127,8 +127,10 @@ class CarDetailsView extends StatelessWidget {
                       height: 40,
                     ),
 
-                    const CarDetailsFooterWidget()
-
+                    const CarDetailsFooterWidget(),
+                    const SizedBox(
+                      height: 20,
+                    ),
                   ],
                 ),
               ),

@@ -34,16 +34,20 @@ class CarDetailsFooterWidget extends StatelessWidget {
           const SizedBox(width: 10,),
 
           Expanded(
-            child: TextButton(
-              onPressed: (){},
-              child: Row(
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 10),
+              decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                borderRadius: const BorderRadius.all(Radius.circular(20))
+              ),
+              child:  Row(
+                mainAxisSize: MainAxisSize.max,
                 children: [
                   const Expanded(
                     child: Icon(Icons.location_on_outlined,
-                      color: Color(0xffbbbdc6),),
+                      color: Color(0xffbbbdc6),
+                    size: 20,),
                   ),
-
-                  const Expanded(child:  SizedBox(width: 10,)),
 
                   Text(
                     LangEnum.carLocation.tr(),
@@ -53,44 +57,47 @@ class CarDetailsFooterWidget extends StatelessWidget {
                   )
                 ],
               ),
-            ),
+            )
+            // TextButton(
+            //   onPressed: (){},
+            //   child:
+            // ),
           ),
 
 
           const SizedBox(width: 10,),
           Expanded(
-            child: TextButton(
-              onPressed: (){},
-              style: TextButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.background,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    side:BorderSide(
-                        color:Theme.of(context).colorScheme.primary,
-                        width: 1,
-                        style: BorderStyle.solid
-                    )
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 10),
+                decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.onPrimary,
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
+                  border: Border.all(
+                    width: 1,
+                    color:  Theme.of(context).colorScheme.primary,
 
-                ),
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Icon(Icons.book_outlined,
-                      color: Theme.of(context).colorScheme.primary.withOpacity(0.7),),
-                  ),
-                  const Expanded(child:  SizedBox(width: 10,)),
-
-                  Text(
-                    LangEnum.bookCar.tr(),
-                    style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary
-                    ),
                   )
-                ],
-              ),
-            ),
+                ),
+                child:  Row(
+                  children: [
+
+                    Expanded(
+                      child: Icon(Icons.book_outlined,
+                        color: Theme.of(context).colorScheme.primary.withOpacity(0.7),
+                          size: 20),
+                    ),
+
+                    Text(
+                      LangEnum.bookCar.tr(),
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary
+                      ),
+                    )
+                  ],
+                ),
+              )
           ),
+
 
 
         ],

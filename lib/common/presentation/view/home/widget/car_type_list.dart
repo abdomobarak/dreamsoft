@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 class CarTypeList extends StatelessWidget {
    CarTypeList({Key? key}) : super(key: key);
 
-  List carTypeList = [
+  List<String> carTypeList = [
     LangEnum.asian.tr(),
     LangEnum.european.tr(),
     LangEnum.american.tr()
@@ -21,33 +21,31 @@ class CarTypeList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 35,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        physics: const NeverScrollableScrollPhysics(),
-        shrinkWrap: true,
-        itemCount: carTypeList.length,
-          itemBuilder: (context,index){
+      child:Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children:carTypeList.map((e) {
           return GetBuilder<CarTypeVM>(
             builder: (vm){
               return Container(
-                margin: const EdgeInsets.symmetric(horizontal: MySizes.defaultPadding /2),
+                margin: const EdgeInsets.symmetric(horizontal: MySizes.defaultPadding /3),
                 child: TextButton(
                     style: TextButton.styleFrom(
-                        side: BorderSide(width: 1.0,
-                            color: Theme.of(context).colorScheme.primary),
-                        backgroundColor:vm.selectedIndex == index?
-                           Theme.of(context).colorScheme.primary
-                            :Theme.of(context).colorScheme.background
+                      side: BorderSide(width: 1.0,
+                          color: Theme.of(context).colorScheme.primary),
+                      backgroundColor:vm.selectedIndex == carTypeList.indexOf(e)?
+                      Theme.of(context).colorScheme.primary
+                          :Theme.of(context).colorScheme.background,
+                      padding: const EdgeInsets.symmetric(horizontal: 25),
                     ),
                     onPressed: (){
-                      vm.setSelectedIndex(index: index);
+                      vm.setSelectedIndex(index: carTypeList.indexOf(e));
                     },
                     child: Text(
-                      carTypeList[index],
+                      e,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: vm.selectedIndex == index?
+                        color: vm.selectedIndex == carTypeList.indexOf(e)?
                         Theme.of(context).colorScheme.onPrimary
-                        :Theme.of(context).colorScheme.primary,
+                            :Theme.of(context).colorScheme.primary,
 
                       ),
                     )
@@ -55,9 +53,8 @@ class CarTypeList extends StatelessWidget {
               );
             },
           );
-
-          }
-      ),
+        }).toList(),
+      )
     );
   }
 }
